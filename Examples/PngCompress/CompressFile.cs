@@ -2,8 +2,8 @@
 using Shakkaler;
 using System.Diagnostics;
 
-string openPath = @"C:\Users\jejik\Jejikeh\programming\.net\shakaly\ShakallerImageCompression\Shakaller\Shakkaler\Examples\PngCompress\images\";
-string savePath = @"C:\Users\jejik\Jejikeh\programming\.net\shakaly\ShakallerImageCompression\Shakaller\Shakkaler\Examples\PngCompress\compressed\";
+string openPath = @"yourpath\images\";
+string savePath = @"yourpath\compressed\";
 
 //Shakkal.CompressAndSaveFile(openPath,savePath,10);
 
