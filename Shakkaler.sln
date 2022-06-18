@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32526.322
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shakkaler", "Shakkaler\Shakkaler.csproj", "{60ACA286-3B46-41BB-811D-4CC1C8FFBC94}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompressFile", "Examples\PngCompress\CompressFile.csproj", "{3609104C-3A84-4A1F-9904-5E372F7CDE63}"
+	ProjectSection(ProjectDependencies) = postProject
+		{60ACA286-3B46-41BB-811D-4CC1C8FFBC94} = {60ACA286-3B46-41BB-811D-4CC1C8FFBC94}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{60ACA286-3B46-41BB-811D-4CC1C8FFBC94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60ACA286-3B46-41BB-811D-4CC1C8FFBC94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60ACA286-3B46-41BB-811D-4CC1C8FFBC94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60ACA286-3B46-41BB-811D-4CC1C8FFBC94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3609104C-3A84-4A1F-9904-5E372F7CDE63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3609104C-3A84-4A1F-9904-5E372F7CDE63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3609104C-3A84-4A1F-9904-5E372F7CDE63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3609104C-3A84-4A1F-9904-5E372F7CDE63}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B4B0F469-91BE-4F15-9822-11C1E49F6838}
+	EndGlobalSection
+EndGlobal
