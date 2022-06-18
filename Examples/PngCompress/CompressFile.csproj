@@ -11,9 +11,4 @@
     <ProjectReference Include="..\..\Shakkaler\Shakkaler.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="compressed\" />
-    <Folder Include="images\" />
-  </ItemGroup>
-
 </Project>
