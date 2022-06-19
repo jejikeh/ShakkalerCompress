@@ -2,16 +2,16 @@
 using Shakkaler;
 using System.Diagnostics;
 
-string openPath = @"yourpath\images\";
-string savePath = @"yourpath\compressed\";
-
+string openPath = @"C:\Users\jejik\Jejikeh\programming\.net\shakaly\ShakallerImageCompression\Shakaller\Shakkaler\Examples\PngCompress\images\";
+string savePath = @"C:\Users\jejik\Jejikeh\programming\.net\shakaly\ShakallerImageCompression\Shakaller\Shakkaler\Examples\PngCompress\compressed\";
+string logoPath = @"C:\Users\jejik\Jejikeh\programming\.net\shakaly\ShakallerImageCompression\Shakaller\Shakkaler\Examples\PngCompress\watermark.png";
 //Shakkal.CompressAndSaveFile(openPath,savePath,10);
 
 
 Stopwatch stopwatch = new Stopwatch();
 
 stopwatch.Start();
-Shakkal.CompressAndSaveDirectoryFiles(openPath,savePath,"hello",10);
+Shakkal.CompressAndSaveDirectoryFilesWithWatermark(openPath,savePath,"hello",10,logoPath);
 stopwatch.Stop();
 Console.WriteLine($"Ellapsed ms : {stopwatch.ElapsedMilliseconds}");
 

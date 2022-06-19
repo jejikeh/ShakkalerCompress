@@ -70,5 +70,18 @@ namespace Shakkaler
                 throw new Exception(e.Message);
             }
         }
+
+        internal static void CreateWatermark(MagickImage image, MagickImage watermark)
+        {
+            try
+            {
+                image.Composite(watermark, Gravity.Southeast, CompositeOperator.Over);
+                image.Evaluate(Channels.Alpha, EvaluateOperator.Divide,4);
+            }
+            catch (MagickException e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
     }
 }
