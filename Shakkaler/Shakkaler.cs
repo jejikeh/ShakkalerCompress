@@ -36,6 +36,25 @@ namespace Shakkaler
             }
         }
 
+        public static async Task CompressAndSaveFileAsync(string openPath, string savePath, string name, int compression)
+        {
+            await Task.Run(async () =>
+            {
+                try
+                {
+                    MagickImage image = FileMethods.OpenFile(openPath);
+                    FileMethods.ResizeFile(image);
+                    FileMethods.CompressFile(image, compression);
+                    FileMethods.SaveFileInDirectory(image, savePath, name);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    await CompressAndSaveFileAsync(openPath, savePath, name, compression);
+                }
+            });
+        }
+
         public static void CompressAndSaveDirectoryFiles(string openDir, string saveDir, int compression)
         {
             string[] files = Directory.GetFiles($"{openDir}", "*.jpg");
