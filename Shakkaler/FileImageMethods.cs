@@ -2,7 +2,7 @@
 
 namespace Shakkaler
 {
-    internal static class FileMethods
+    internal static class FileImageMethods
     {
 
         internal static MagickImage OpenFile(string path)

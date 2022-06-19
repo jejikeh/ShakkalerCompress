@@ -10,10 +10,10 @@ namespace Shakkaler
         {
             try
             {
-                MagickImage image = FileMethods.OpenFile(openPath);
-                FileMethods.ResizeFile(image);
-                FileMethods.CompressFile(image, compression);
-                FileMethods.SaveFile(image, savePath);
+                MagickImage image = FileImageMethods.OpenFile(openPath);
+                FileImageMethods.ResizeFile(image);
+                FileImageMethods.CompressFile(image, compression);
+                FileImageMethods.SaveFile(image, savePath);
             }
             catch (Exception e)
             {
@@ -25,10 +25,10 @@ namespace Shakkaler
         {
             try
             {
-                MagickImage image = FileMethods.OpenFile(openPath);
-                FileMethods.ResizeFile(image);
-                FileMethods.CompressFile(image, compression);
-                FileMethods.SaveFileInDirectory(image, savePath,name);
+                MagickImage image = FileImageMethods.OpenFile(openPath);
+                FileImageMethods.ResizeFile(image);
+                FileImageMethods.CompressFile(image, compression);
+                FileImageMethods.SaveFileInDirectory(image, savePath,name);
             }
             catch (Exception e)
             {
@@ -40,12 +40,12 @@ namespace Shakkaler
         {
             try
             {
-                MagickImage image = FileMethods.OpenFile(openPath);
-                MagickImage watermark = FileMethods.OpenFile(watermarkPath);
-                FileMethods.ResizeFile(image);
-                FileMethods.CreateWatermark(image, watermark);
-                FileMethods.CompressFile(image, compression);
-                FileMethods.SaveFileInDirectory(image, savePath, name);
+                MagickImage image = FileImageMethods.OpenFile(openPath);
+                MagickImage watermark = FileImageMethods.OpenFile(watermarkPath);
+                FileImageMethods.ResizeFile(image);
+                FileImageMethods.CreateWatermark(image, watermark);
+                FileImageMethods.CompressFile(image, compression);
+                FileImageMethods.SaveFileInDirectory(image, savePath, name);
             }
             catch (Exception e)
             {
@@ -59,10 +59,10 @@ namespace Shakkaler
             {
                 try
                 {
-                    MagickImage image = FileMethods.OpenFile(openPath);
-                    FileMethods.ResizeFile(image);
-                    FileMethods.CompressFile(image, compression);
-                    FileMethods.SaveFileInDirectory(image, savePath, name);
+                    MagickImage image = FileImageMethods.OpenFile(openPath);
+                    FileImageMethods.ResizeFile(image);
+                    FileImageMethods.CompressFile(image, compression);
+                    FileImageMethods.SaveFileInDirectory(image, savePath, name);
                 }
                 catch (Exception e)
                 {
@@ -88,14 +88,6 @@ namespace Shakkaler
             string[] files = Directory.GetFiles($"{openDir}", "*.jpg");
             Console.WriteLine($"The number of Images {files.Length}");
 
-            /*
-            for (int i = 0; i < files.Length; i++)
-            {
-                string nameFile = startName + i.ToString() + ".jpg";
-                CompressAndSaveFile(files[i], saveDir, nameFile, compression);
-            }
-            */
-
             Parallel.For(0, files.Length, i => {
                 string nameFile = startName + i.ToString() + ".jpg";
                 CompressAndSaveFile(files[i], saveDir, nameFile, compression);
@@ -108,19 +100,31 @@ namespace Shakkaler
             string[] files = Directory.GetFiles($"{openDir}", "*.jpg");
             Console.WriteLine($"The number of Images {files.Length}");
 
-            /*
-            for (int i = 0; i < files.Length; i++)
-            {
-                string nameFile = startName + i.ToString() + ".jpg";
-                CompressAndSaveFile(files[i], saveDir, nameFile, compression);
-            }
-            */
-
             Parallel.For(0, files.Length, i => {
                 string nameFile = startName + i.ToString() + ".jpg";
                 CompressAndSaveFileWithWatermark(files[i], saveDir, nameFile, compression,watermarkPath);
             });
 
+        }
+
+
+        public async static Task CompressAudioFileAsync(string openFile, string saveFile)
+        {
+            await Task.Run(async () =>
+            {
+                try
+                {
+                    var currentDirectory = Directory.GetCurrentDirectory();
+                    var basePath = currentDirectory.Split(new string[] { "\\bin" }, StringSplitOptions.None)[0];
+                    FfmpegWrapper ffmpegWrapper = new();
+                    ffmpegWrapper.ExecuteCommand($" -i {basePath + openFile} -c:a libmp3lame -b:a 8k -ac 2 {basePath + saveFile}");
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    await CompressAudioFileAsync(openFile,saveFile);
+                }
+            });
         }
     }
 }
