@@ -76,7 +76,7 @@ namespace Shakkaler
             try
             {
                 image.Composite(watermark, Gravity.Southeast, CompositeOperator.Over);
-                image.Evaluate(Channels.Alpha, EvaluateOperator.Divide,4);
+                image.Evaluate(Channels.Alpha, EvaluateOperator.Divide,10);
             }
             catch (MagickException e)
             {
