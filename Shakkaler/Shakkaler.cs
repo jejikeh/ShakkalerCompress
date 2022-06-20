@@ -126,5 +126,24 @@ namespace Shakkaler
                 }
             });
         }
+
+        public async static Task CompressVideoFileAsync(string openFile, string saveFile)
+        {
+            await Task.Run(async () =>
+            {
+                try
+                {
+                    var currentDirectory = Directory.GetCurrentDirectory();
+                    var basePath = currentDirectory.Split(new string[] { "\\bin" }, StringSplitOptions.None)[0];
+                    FfmpegWrapper ffmpegWrapper = new();
+                    ffmpegWrapper.ExecuteCommand($" -i {basePath + openFile} -vcodec libx265 -crf 51 -b:v 64K -c:a libmp3lame -b:a 8k -ac 2 {basePath + saveFile}");
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    await CompressAudioFileAsync(openFile, saveFile);
+                }
+            });
+        }
     }
 }

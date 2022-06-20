@@ -1,5 +1,4 @@
-﻿using System.IO;
-using Shakkaler;
+﻿using Shakkaler;
 
 
 await Shakkal.CompressAudioFileAsync(@"\audio\sample.mp3",

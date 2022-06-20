@@ -5,10 +5,14 @@ VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shakkaler", "Shakkaler\Shakkaler.csproj", "{60ACA286-3B46-41BB-811D-4CC1C8FFBC94}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompressFile", "Examples\PngCompress\CompressFile.csproj", "{3609104C-3A84-4A1F-9904-5E372F7CDE63}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompressFile", "Examples\PngCompress\CompressFile.csproj", "{3609104C-3A84-4A1F-9904-5E372F7CDE63}"
 	ProjectSection(ProjectDependencies) = postProject
 		{60ACA286-3B46-41BB-811D-4CC1C8FFBC94} = {60ACA286-3B46-41BB-811D-4CC1C8FFBC94}
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoCompress", "Examples\VideoCompress\VideoCompress.csproj", "{FFF4D0AB-F141-4B58-8A7C-3C67DC198005}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AudioCompression", "Examples\AudioCompression\AudioCompression\AudioCompression.csproj", "{8502840D-852F-4543-87F3-93D91B5EBA5B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,6 +28,14 @@ Global
 		{3609104C-3A84-4A1F-9904-5E372F7CDE63}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3609104C-3A84-4A1F-9904-5E372F7CDE63}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3609104C-3A84-4A1F-9904-5E372F7CDE63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFF4D0AB-F141-4B58-8A7C-3C67DC198005}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFF4D0AB-F141-4B58-8A7C-3C67DC198005}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFF4D0AB-F141-4B58-8A7C-3C67DC198005}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFF4D0AB-F141-4B58-8A7C-3C67DC198005}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8502840D-852F-4543-87F3-93D91B5EBA5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8502840D-852F-4543-87F3-93D91B5EBA5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8502840D-852F-4543-87F3-93D91B5EBA5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8502840D-852F-4543-87F3-93D91B5EBA5B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
